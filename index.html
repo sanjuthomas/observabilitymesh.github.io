@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Observability Mesh — An architectural practice</title>
+  <meta name="description" content="A lightweight, vendor-free operating model for decentralized observability ownership. Own your logs, metrics, traces, and SLOs as part of the application — not shared infrastructure." />
+  <meta name="theme-color" content="#0c1a22" />
+  <link rel="canonical" href="https://observabilitymesh.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="wordmark" href="#top" aria-label="Observability Mesh home">
+        <span class="wordmark__mark" aria-hidden="true"></span>
+        Observability Mesh
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#practice">Practice</a>
+        <a href="#paths">Paths</a>
+        <a href="#model">Model</a>
+        <a href="#start">Start</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/sanjuthomas/observability-mesh" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-brand">
+      <div class="hero__atmosphere" aria-hidden="true">
+        <svg class="hero__mesh" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" role="presentation">
+          <defs>
+            <linearGradient id="meshStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3d9b8f" stop-opacity="0.55" />
+              <stop offset="55%" stop-color="#7eb8c9" stop-opacity="0.28" />
+              <stop offset="100%" stop-color="#c4a35a" stop-opacity="0.22" />
+            </linearGradient>
+            <radialGradient id="heroGlow" cx="70%" cy="35%" r="55%">
+              <stop offset="0%" stop-color="#1a4a52" stop-opacity="0.65" />
+              <stop offset="100%" stop-color="#0c1a22" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="1440" height="900" fill="url(#heroGlow)" />
+          <g class="hero__nodes" fill="none" stroke="url(#meshStroke)" stroke-width="1.2">
+            <path d="M80 720 C220 640, 280 480, 420 420 C560 360, 620 280, 780 250 C940 220, 1080 180, 1280 120" />
+            <path d="M40 520 C200 500, 320 560, 480 500 C640 440, 720 360, 900 340 C1080 320, 1200 280, 1400 240" />
+            <path d="M120 820 C300 760, 400 700, 560 660 C720 620, 860 540, 1020 500 C1180 460, 1300 420, 1420 360" />
+            <path d="M200 200 C360 260, 480 320, 620 380 C760 440, 880 520, 1040 560 C1200 600, 1320 680, 1400 760" />
+            <path d="M60 300 C180 360, 260 440, 400 500 C540 560, 700 600, 860 640 C1020 680, 1180 740, 1360 800" />
+          </g>
+          <g class="hero__dots" fill="#7eb8c9">
+            <circle cx="420" cy="420" r="3.5" opacity="0.9" />
+            <circle cx="780" cy="250" r="3" opacity="0.75" />
+            <circle cx="900" cy="340" r="4" opacity="0.85" />
+            <circle cx="560" cy="660" r="3" opacity="0.7" />
+            <circle cx="1040" cy="560" r="3.5" opacity="0.8" />
+            <circle cx="1280" cy="120" r="2.5" opacity="0.6" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__brand" id="hero-brand">Observability Mesh</p>
+        <h1 class="hero__headline">Observability owned by the team that ships the service.</h1>
+        <p class="hero__lede">
+          A vendor-free operating model for federated observability ownership — logs, metrics, traces, and SLOs as part of the application, not a shared platform every team feeds into.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#paths">Choose a path</a>
+          <a class="btn btn--ghost" href="https://github.com/sanjuthomas/observability-mesh" target="_blank" rel="noopener noreferrer">Read the reference</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--practice" id="practice" aria-labelledby="practice-title">
+      <div class="section__inner">
+        <p class="eyebrow">The practice</p>
+        <h2 id="practice-title">An architecture, not a product pitch.</h2>
+        <p class="section__lede">
+          In large enterprises, observability often lives with a central platform and expensive tooling that only the high-traffic services fully justify. Small applications still get pulled onto the same stack so cost can be shared. Startups face the opposite problem: they need reliable operations without buying an enterprise suite or hiring a dedicated SRE team on day one.
+        </p>
+        <p class="section__lede section__lede--tight">
+          Observability Mesh is the answer in between — a <em>service reliability catalog</em> assembled from open-source tools, wired so each team can run a full stack the same way data mesh thinking lets teams own data products without waiting on a central warehouse.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--paths" id="paths" aria-labelledby="paths-title">
+      <div class="section__inner">
+        <p class="eyebrow">Two entry points</p>
+        <h2 id="paths-title">Start where your organization is ready.</h2>
+        <p class="section__lede">
+          The full mesh covers the three pillars and the SLO workflow end to end. The stripped path focuses on SLO authoring and the SLO repository — enough to build trust with users and make reliability decisions from data.
+        </p>
+
+        <div class="path-switch" role="tablist" aria-label="Narrative path">
+          <button
+            type="button"
+            class="path-switch__btn is-active"
+            role="tab"
+            id="tab-full"
+            aria-selected="true"
+            aria-controls="panel-full"
+            data-path="full"
+          >
+            <span class="path-switch__label">Full mesh</span>
+            <span class="path-switch__hint">Logs · Metrics · Traces · SLOs</span>
+          </button>
+          <button
+            type="button"
+            class="path-switch__btn"
+            role="tab"
+            id="tab-slo"
+            aria-selected="false"
+            aria-controls="panel-slo"
+            data-path="slo"
+          >
+            <span class="path-switch__label">SLO-first</span>
+            <span class="path-switch__hint">Author · Catalog · Trust</span>
+          </button>
+        </div>
+
+        <div
+          class="path-panel is-active"
+          role="tabpanel"
+          id="panel-full"
+          aria-labelledby="tab-full"
+          data-path-panel="full"
+        >
+          <article class="path-intro">
+            <h3>Compose a tenant mesh beside the application</h3>
+            <p>
+              Application teams get isolated observability tenants. The platform team publishes the golden catalog, instrumentation contract, SLO workflow, and upgrade path. Telemetry flows through a single collector per tenant; SLO documents live in that tenant’s catalog.
+            </p>
+          </article>
+
+          <div class="pillars" aria-label="Three pillars of observability">
+            <article class="pillar reveal">
+              <p class="pillar__signal">01 · Logs</p>
+              <h3>Searchable history of what happened</h3>
+              <p>
+                Instrumented services export logs over OTLP to the tenant collector. The logs pipeline lands in OpenSearch so teams can investigate incidents without sharing a global log estate.
+              </p>
+              <p class="pillar__stack">OTLP → Collector → OpenSearch → Dashboards</p>
+            </article>
+            <article class="pillar reveal">
+              <p class="pillar__signal">02 · Metrics</p>
+              <h3>Counters and histograms that drive alerts</h3>
+              <p>
+                Metrics follow the same OTLP path into Prometheus. Alerting is metric-based — PromQL rules and burn rates — not log scraping. Cardinality and retention stay inside the tenant boundary.
+              </p>
+              <p class="pillar__stack">OTLP → Collector → Prometheus → Grafana / Alertmanager</p>
+            </article>
+            <article class="pillar reveal">
+              <p class="pillar__signal">03 · Traces</p>
+              <h3>Request paths across services</h3>
+              <p>
+                Distributed traces land in Tempo and open from Grafana Explore. Each service sets <code>OTEL_SERVICE_NAME</code>; the mesh keeps the shared OTLP contract so replacing a demo workload with your own services is mechanical.
+              </p>
+              <p class="pillar__stack">OTLP → Collector → Tempo → Grafana Explore</p>
+            </article>
+          </div>
+
+          <article class="slo-block reveal">
+            <div class="slo-block__copy">
+              <p class="eyebrow">SLO workflow</p>
+              <h3>Author what “good” looks like, then provision it</h3>
+              <p>
+                Developers author, validate, and version OpenSLO documents through the SLO authoring service. A provisioner polls the catalog, compiles documents with Sloth into Prometheus recording and burn-rate rules, and reloads the tenant Prometheus. Grafana ships an SLO Overview dashboard for objective, SLI attainment, burn rate, and error budget.
+              </p>
+              <ol class="flow-list">
+                <li>Author OpenSLO SLIs and SLOs in the catalog</li>
+                <li>Provisioner compiles Sloth rules into the tenant rules volume</li>
+                <li>Prometheus evaluates; Alertmanager notifies; Grafana shows budget</li>
+              </ol>
+            </div>
+            <aside class="slo-block__aside" aria-label="SLO control plane">
+              <p class="mono-label">Control plane</p>
+              <ul class="stack-list">
+                <li><span>Author</span> OpenSLO UI + API</li>
+                <li><span>Store</span> PostgreSQL catalog</li>
+                <li><span>Provision</span> Sloth → Prom rules</li>
+                <li><span>Observe</span> Grafana SLO dashboard</li>
+              </ul>
+            </aside>
+          </article>
+        </div>
+
+        <div
+          class="path-panel"
+          role="tabpanel"
+          id="panel-slo"
+          aria-labelledby="tab-slo"
+          data-path-panel="slo"
+          hidden
+        >
+          <article class="path-intro">
+            <h3>Start with the SLO repository — prove reliability in writing</h3>
+            <p>
+              You do not need the full telemetry estate on day one to change how teams talk about reliability. An SLO catalog — authored documents, a provisioned rules path, and a dashboard — lets developers define commitments users can see and leadership can use for data-driven decisions.
+            </p>
+          </article>
+
+          <div class="trust-grid">
+            <article class="trust reveal">
+              <h3>Build trust with users</h3>
+              <p>
+                Published SLOs turn vague “we’re reliable” claims into measurable objectives. When error budget is visible, support and product conversations share the same language as engineering.
+              </p>
+            </article>
+            <article class="trust reveal">
+              <h3>Enable data-driven decisions</h3>
+              <p>
+                Burn rate and remaining budget tell you when to freeze features, when to invest in resilience, and when a service is healthy enough to take risk — without waiting for a war room.
+              </p>
+            </article>
+            <article class="trust reveal">
+              <h3>Keep ownership with the builders</h3>
+              <p>
+                The team that ships the service authors the OpenSLO documents. Platform publishes the catalog building blocks; application teams own SLI quality and day-2 review of their own dashboards.
+              </p>
+            </article>
+          </div>
+
+          <article class="slo-strip reveal">
+            <p class="eyebrow">Minimal path</p>
+            <h3>Author → catalog → rules → dashboard</h3>
+            <p>
+              Use the SLO authoring service and provisioner as a focused reliability workflow. Seed SLIs and SLOs for HTTP success and latency (as in the Petstore demo), generate traffic, and watch Sloth-derived series appear in Grafana: error ratios, current burn, and period error-budget remaining.
+            </p>
+            <p class="slo-strip__note">
+              When you are ready, expand the same tenant into the full mesh — logs and traces plug into the same operating model without rewriting ownership.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--model" id="model" aria-labelledby="model-title">
+      <div class="section__inner">
+        <p class="eyebrow">Operating model</p>
+        <h2 id="model-title">Built for the federated model large organizations already run.</h2>
+        <p class="section__lede">
+          At scale, reliability work rarely lives in one central blob or only inside product teams. The pattern that shows up most often is <em>federated</em>: a central platform publishes golden paths and contracts; domain and application teams own outcomes for their services. Observability Mesh is that pattern applied to telemetry and SLOs — not a replacement for your whole reliability org.
+        </p>
+        <p class="section__lede section__lede--tight">
+          The target deployment is one isolated tenant per application team — not a shared observability platform where every service feeds the same Prometheus. If a team emits high-cardinality labels or writes SLIs that do not match their metrics, that stays their problem. It does not affect other teams.
+        </p>
+
+        <div class="model-split">
+          <article class="model-col reveal">
+            <h3>Central platform / observability team</h3>
+            <p>Sets the contract. Publishes the catalog. Does not phase out.</p>
+            <ul>
+              <li>Patched images and reference Compose / Kubernetes manifests</li>
+              <li>Instrumentation libraries and OTLP export conventions</li>
+              <li>SLO authoring, Sloth provisioning, baseline dashboards</li>
+              <li>Security patches, upgrade schedules, sizing guidance</li>
+            </ul>
+          </article>
+          <article class="model-col reveal">
+            <h3>Application / domain teams</h3>
+            <p>Compose the mesh beside their services and own day-2.</p>
+            <ul>
+              <li>Deploy pinned versions into their tenant</li>
+              <li>Instrument services and set service names</li>
+              <li>Author OpenSLO documents and review burn-rate dashboards</li>
+              <li>Own storage, retention, cardinality, and backups</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="audiences reveal">
+          <p class="eyebrow">Same catalog, different audiences</p>
+          <h3>Two sets of SLOs — one control plane</h3>
+          <p>
+            Federated ownership is what makes multi-audience reliability workable. Engineering leadership and application owners rarely want the same documents; they should not fight over a single shared dashboard or a single shared Prometheus.
+          </p>
+          <div class="audience-split">
+            <div>
+              <h4>Engineering leadership</h4>
+              <p>
+                A comparable portfolio set — availability, latency, error-budget burn across critical services — for investment, risk, and cross-team standards.
+              </p>
+            </div>
+            <div>
+              <h4>Application owners, product, and business</h4>
+              <p>
+                Service- and journey-shaped SLOs — checkout success, scan latency, “can a user complete X” — for user trust and data-driven product decisions.
+              </p>
+            </div>
+          </div>
+          <p class="audiences__close">
+            Platform publishes the authoring and provisioning building blocks. Teams author the documents their stakeholders need. Same OpenSLO path; different commitments, visible to the people who act on them.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--start" id="start" aria-labelledby="start-title">
+      <div class="section__inner">
+        <p class="eyebrow">Open reference</p>
+        <h2 id="start-title">Clone the practice. Replace the demo with your services.</h2>
+        <p class="section__lede">
+          The reference implementation and a lightweight Petstore demo are open on GitHub. Run Compose, explore the SLO catalog and dashboards, then keep the mesh while swapping in your own workloads.
+        </p>
+
+        <div class="repos">
+          <a
+            class="repo reveal"
+            href="https://github.com/sanjuthomas/observability-mesh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="repo__kind">Reference</span>
+            <span class="repo__name">observability-mesh</span>
+            <span class="repo__desc">
+              Federated observability ownership, composable OSS stack, SLO authoring and provisioner, platform compose for isolated tenants.
+            </span>
+            <span class="repo__cta">View on GitHub</span>
+          </a>
+          <a
+            class="repo reveal"
+            href="https://github.com/sanjuthomas/observability-mesh-demo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="repo__kind">Demo</span>
+            <span class="repo__name">observability-mesh-demo</span>
+            <span class="repo__desc">
+              Petstore workload wired to collector, Prometheus, Grafana, and the OpenSLO catalog — HTTP SLIs end to end.
+            </span>
+            <span class="repo__cta">View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__brand">Observability Mesh</p>
+      <p class="site-footer__tag">
+        An architectural practice for decentralized observability ownership.
+      </p>
+      <p class="site-footer__meta">
+        <a href="https://observabilitymesh.com">observabilitymesh.com</a>
+        · Open source · Not a commercial product
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
