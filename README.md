@@ -1,6 +1,6 @@
 # observabilitymesh.com
 
-Narrative site for **Observability Mesh** — an architectural practice for decentralized observability ownership.
+Narrative site for **Observability Mesh** — an architectural practice and operating model for decentralized observability ownership.
 
 Hosted on GitHub Pages from this repository. Custom domain: [observabilitymesh.com](https://observabilitymesh.com).
 
