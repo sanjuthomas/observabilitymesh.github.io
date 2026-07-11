@@ -910,6 +910,25 @@ code {
   font-size: 0.98rem;
 }
 
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 1.15rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.site-footer__links a {
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--sea);
+  padding-bottom: 0.05rem;
+}
+
+.site-footer__links a:hover {
+  color: var(--ink);
+}
+
 .site-footer__meta {
   margin-top: 0.85rem;
   font-size: 0.9rem;
